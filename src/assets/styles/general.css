@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fcfcfc;
+  margin: 0.3rem 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9a9a9a;
+  border-radius: 0.3rem;
+
+  /* background-color: transparent; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #545454;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+body {
+  background-color: #efefef;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+}
+.main-container {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+.Toastify__toast-container {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border-top: 0.4rem solid #367dce;
+  border-right: 0.4rem solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 850px) {
+  html{
+    font-size: 50%;
+  }
+}

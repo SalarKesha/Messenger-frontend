@@ -1,0 +1,102 @@
+.video-call-container {
+  background-color: #1c1c1c;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.video-call-container .user-container {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  z-index: 2;
+}
+.video-call-container .user-container .user-image {
+  width: 6rem;
+  height: 6rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #eee;
+  border: 0.2rem solid #dedede;
+  object-fit: cover;
+}
+.video-call-container .user-container .user-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.video-call-container .user-container .user-detail .username {
+  text-shadow: 0 0 0.3rem #00000071;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.video-call-container .user-container .user-detail .user-status {
+  text-shadow: 0 0 0.3rem #00000071;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.video-call-container .video-container-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.video-call-container .video-container {
+}
+
+.video-call-container .video-container .video-receive {
+  display: block;
+  background-color: #d9d9d9;
+  max-width: 100vw;
+  height: 100vh;
+  filter: blur(0.3rem);
+}
+.video-call-container .video-container .video-send {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  height: 20rem;
+  max-width: 50%;
+  background-color: #6c6c6c;
+  border-radius: 1rem;
+  z-index: 5;
+
+}
+.video-call-container .options-container {
+  position: absolute;
+  /* background-color: #fff; */
+  padding: 1rem 2rem;
+  bottom: 2rem;
+  z-index: 10;
+  border-radius: 3rem;
+  /* box-shadow: 0 0 2em #00000031; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.video-call-container .options-container > button {
+  width: 5rem;
+  height: 5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 2rem #0000006a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+.video-call-container .options-container > button:hover{
+    transform: scale(1.1);
+}
+.video-call-container .options-container .end-call {
+    background-color: #EE3636;
+}
