@@ -1,7 +1,10 @@
 .messenger-container {
   display: flex;
   flex-direction: row;
+  /* height: 100svh; */
   height: 100vh;
+  height: 100dvh;
+  background-color: #296ab4;
   font-size: 1.6rem;
   width: 100%;
   position: relative;
@@ -100,7 +103,6 @@
   /* grid-area: 2 / 1 / 9 / 2; */
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   height: calc(100% - 10rem);
   position: relative;
   /* overflow: auto; */
@@ -146,9 +148,9 @@
   padding: 0 0.6rem;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   height: 100%;
   overflow-x: hidden;
+  overflow-y: auto !important;
   gap: 0.6rem;
 }
 .aside .item-section ul.items .add-button {
@@ -165,6 +167,7 @@
   font-size: 2rem;
   cursor: pointer;
   box-shadow: 0 0 1rem #00000064;
+  z-index: 99;
 }
 .aside .item-section ul.items .add-button:hover {
   background-color: #3493ff;
@@ -276,7 +279,6 @@
   /* justify-content: space-between; */
   flex-direction: column;
   flex-shrink: 0;
-  background-color: red;
   height: 100%;
   width: calc(100% - 40rem);
   background-color: #283d59;
