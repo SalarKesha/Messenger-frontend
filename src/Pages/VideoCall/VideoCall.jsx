@@ -253,7 +253,7 @@ export default function VideoCall() {
                     <div className="video-container-wrapper">
                         <div className="video-container">
                             <video autoPlay ref={videoReceiveRef} src="" className="video-receive" poster={call.caller.id === authState.user ? call.callee.image : call.caller.image}></video>
-                            <video autoPlay muted ref={videoSendRef} src="" className="video-send" poster={call.caller.id === authState.user ? call.caller.image : call.callee.image}></video>
+                            <video autoPlay ref={videoSendRef} src="" className="video-send" poster={call.caller.id === authState.user ? call.caller.image : call.callee.image}></video>
                         </div>
                         <div className="options-container">
                             {(call.caller.id === authState.user && status === callStatus.PENDING) &&

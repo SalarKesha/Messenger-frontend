@@ -1,7 +1,9 @@
 .video-call-container {
   background-color: #1c1c1c;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   overflow: hidden;
