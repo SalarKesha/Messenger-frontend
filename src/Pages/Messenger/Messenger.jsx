@@ -72,7 +72,11 @@ export default function Messenger() {
     }, [])
     useEffect(() => {
         if (call && socketRef.current) {
-            socketRef.current.send(JSON.stringify({ user_id: call.user, call_type: call.type }))
+            if (socketRef.current.readyState === WebSocket.OPEN) {
+                socketRef.current.send(JSON.stringify({ user_id: call.user, call_type: call.type }))
+            }else {
+                notify('Socket is connecting')
+            }
         }
     }, [call])
     return (

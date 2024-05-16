@@ -63,8 +63,6 @@ export default function AudioCall() {
             if (peerConnectionRef) {
                 peerConnectionRef.current.close()
             }
-            audioSendRef.current = null
-            audioReceiveRef.current = null
         }
     }, [])
     useEffect(() => {
@@ -75,27 +73,22 @@ export default function AudioCall() {
                 switch (data.message_type) {
                     case callStatus.CANCEL:
                         stopAudios()
-                        setStatus(callStatus.CANCEL);
                         navigate('/')
                         break;
                     case callStatus.REJECT:
                         stopAudios()
-                        setStatus(callStatus.REJECT);
                         navigate('/')
                         break;
                     case callStatus.END_REQUEST:
                         stopAudios()
-                        setStatus(callStatus.END_REQUEST);
                         navigate('/')
                         break;
                     case callStatus.ACCEPT:
                         clearTimeout(ringtimeoutRef.current)
                         stopAudios()
                         setStatus(callStatus.ACCEPT);
-
                         break;
                     case callStatus.FINISH:
-                        setStatus(callStatus.FINISH);
                         navigate('/')
                         break;
                     case 'forward':
@@ -161,9 +154,7 @@ export default function AudioCall() {
                 navigator.vibrate(1000);
             }
             ringtimeoutRef.current = setTimeout(() => {
-                callerRingRef.current.pause()
-                calleeRingRef.current.pause()
-                setStatus(callStatus.END_REQUEST)
+                stopAudios()
                 navigate('/')
             }, 1000 * 30)
             peerConnectionRef.current.onicecandidate = (e) => {

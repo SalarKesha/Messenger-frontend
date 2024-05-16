@@ -62,11 +62,9 @@ export default function VideoCall() {
                     track.stop();
                 });
             }
-            if (peerConnectionRef) {
+            if (peerConnectionRef.current) {
                 peerConnectionRef.current.close()
             }
-            videoSendRef.current = null
-            videoReceiveRef.current = null
         }
     }, [])
     useEffect(() => {
@@ -77,27 +75,22 @@ export default function VideoCall() {
                 switch (data.message_type) {
                     case callStatus.CANCEL:
                         stopAudios()
-                        setStatus(callStatus.CANCEL);
                         navigate('/')
                         break;
                     case callStatus.REJECT:
                         stopAudios()
-                        setStatus(callStatus.REJECT);
                         navigate('/')
                         break;
                     case callStatus.END_REQUEST:
                         stopAudios()
-                        setStatus(callStatus.END_REQUEST);
                         navigate('/')
                         break;
                     case callStatus.ACCEPT:
                         clearTimeout(ringtimeoutRef.current)
                         stopAudios()
                         setStatus(callStatus.ACCEPT);
-
                         break;
                     case callStatus.FINISH:
-                        setStatus(callStatus.FINISH);
                         navigate('/')
                         break;
                     case 'forward':
@@ -163,9 +156,7 @@ export default function VideoCall() {
                 navigator.vibrate(1000);
             }
             ringtimeoutRef.current = setTimeout(() => {
-                callerRingRef.current.pause()
-                calleeRingRef.current.pause()
-                setStatus(callStatus.END_REQUEST)
+                stopAudios()
                 navigate('/')
             }, 1000 * 30)
             peerConnectionRef.current.onicecandidate = (e) => {
@@ -222,6 +213,7 @@ export default function VideoCall() {
         sendMessage({ message_type: callStatus.ACCEPT })
     }
     const handleFinish = () => {
+        stopAudios()
         sendMessage({ message_type: callStatus.FINISH })
         navigate('/')
     }
