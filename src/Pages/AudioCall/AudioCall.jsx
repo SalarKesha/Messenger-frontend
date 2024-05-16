@@ -37,8 +37,8 @@ export default function AudioCall() {
     navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
             streamRef.current = stream
-            const [track] = stream.getAudioTracks()
-            peerConnectionRef.current.addTrack(track, stream)
+            const [audioTrack] = stream.getAudioTracks()
+            peerConnectionRef.current.addTrack(audioTrack, stream)
             audioSendRef.current.srcObject = stream
         })
         .catch(error => {
